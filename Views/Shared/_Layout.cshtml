@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTEC Salud</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/datatable/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="~/lib/datatable/responsive/responsive.dataTables.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesone/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesone/css/brands.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesone/css/solid.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/lib/popper/popper.js"></script>    
+    <script type="text/javascript" src="~/lib/datatable/dataTables.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatable/responsive/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatable/buttons/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="~/lib/datatable/buttons/buttons.dataTables.js"></script>
+    <script type="text/javascript" src="~/lib/datatable/buttons/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootbox/bootbox.all.min.js"></script>
+    <script type="text/javascript" src="~/lib/jszip/jszip.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js" asp-append-version="true"></script>
+</head>
+<body>
+    <partial name="Cargando" />
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline">UTEC Salud</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Afiliado", "Home")" class="nav-link align-middle px-0">
+                                <i class="fa-solid fa-person"></i> <span class="ms-1 d-none d-sm-inline">Afiliado</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Medico", "Home")" class="nav-link px-0 align-middle">
+                                <i class="fa-solid fa-user-doctor"></i> <span class="ms-1 d-none d-sm-inline">Medico</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Cita", "Home")" class="nav-link px-0 align-middle">
+                                <i class="fa-regular fa-calendar-check"></i> <span class="ms-1 d-none d-sm-inline">Cita</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+            <div class="col py-1">
+                @RenderBody()
+            </div>
+        </div>
+
+        <div id="DivErrores" class="display: none"></div>
+    </div>
+</body>
+</html>

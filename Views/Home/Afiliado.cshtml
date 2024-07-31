@@ -1,0 +1,51 @@
+﻿@model UTEC.Salud.Models.VistaAfiliado
+@{
+    ViewBag.Title = "Afiliado";
+}
+    <div class="row">
+        <div class="col-12 table-responsive">
+        @Html.Partial("tablaAfiliado", Model)
+        </div>
+    </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        tableConfig = {
+            ordering: true,
+            orderMulti: true,
+            // dom: "<'row'<'col-sm-12 col-md-6'B><'col-sm-12 col-md-6'f>>" +
+            //     "<'row'<'col-sm-12'tr>>" +
+            //     "<'row'<'small col-sm-12 col-md-5'i><'small col-sm-12 col-md-7'p>>",
+            layout: {
+                topStart: {
+                    buttons: [
+                        {
+                            text: '<i class="fa-solid fa-filter"></i> Buscar',
+                            className: 'btn-sm btn-primary border-0',
+                            action: function (e, dt, node, config) {
+                                Buscar();
+                            }
+                        },
+                        {
+                            extend: 'excel',
+                            text: '<i class="fa-solid fa-file-excel"></i> Exportar',
+                            className: 'btn-sm btn-success border-0',
+                            filename: 'Afiliados @(DateTime.Now.ToString("dd-MM-yyyy HH.mm"))'
+                        },
+
+                    ]
+                }
+            }            
+        };
+
+        ARCHIVOS_TABLE = $('#tblAfiliado').DataTable(tableConfig);
+    });
+
+    function Buscar() {
+        $.post('@Url.Action("ListarAfiliados", "Home")')
+            .done(function (data, status, xhr) {
+                console.log(xhr);
+                __onSuccess(data, status, xhr, '#tblAfiliado', tableConfig)
+            })
+    }
+
+</script>
