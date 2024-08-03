@@ -26,8 +26,8 @@ jobs:
         username: ec2-user
         key: ${{ secrets.SSH_KEY }}
         script: |
-          export NVM_DIR=~/.nvm
-          source ~/.nvm/nvm.sh
+          # export NVM_DIR=~/.nvm
+          # source ~/.nvm/nvm.sh
           cd /home/ec2-user/UTEC.Salud
           git stash
           git pull origin main

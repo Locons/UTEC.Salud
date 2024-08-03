@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Diagnostics;
 using System.Reflection;
+using UTEC.Salud.Clases;
 using UTEC.Salud.Models;
 
 namespace UTEC.Salud.Controllers
@@ -22,7 +23,8 @@ namespace UTEC.Salud.Controllers
 
         public IActionResult Cita()
         {
-            return View();
+            VistaCita model = new VistaCita();
+            return View(model);
         }
 
         public IActionResult Afiliado()
@@ -44,36 +46,27 @@ namespace UTEC.Salud.Controllers
             {
                 VistaAfiliado model = new VistaAfiliado();
 
-                List<Afiliado> result = new List<Afiliado>();
-
-                //throw new Exception("Prueba");
-
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 123, UnidadEjecutora = "Prueba 1" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-                result.Add(new Afiliado() { Ubigeo = 345, UnidadEjecutora = "Prueba 2" });
-
-                model.Lista = result;
+                Proxy proxy = new Proxy();
+                model.Lista = proxy.ListarAfiliados();
 
                 return PartialView("tablaAfiliado", model);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ActionResult ListarCitas()
+        {
+            try
+            {
+                VistaCita model = new VistaCita();
+
+                Proxy proxy = new Proxy();
+                model.Lista = proxy.ListarCita();
+
+                return PartialView("tablaCita", model);
             }
             catch (Exception ex)
             {

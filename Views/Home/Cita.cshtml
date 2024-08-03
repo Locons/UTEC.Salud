@@ -1,6 +1,48 @@
-﻿<div class="text-center">
-    <i style="font-size: 150px" class="fa-solid fa-person-digging"></i>
-    <hr />
-    <br />
-    En construcción
+﻿@model UTEC.Salud.Models.VistaCita
+@{
+    ViewBag.Title = "Cita";
+}
+<div class="row">
+    <div class="col-12 table-responsive">
+        @Html.Partial("tablaCita", Model)
+    </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        tableConfig = {
+            ordering: true,
+            orderMulti: true,
+            layout: {
+                topStart: {
+                    buttons: [
+                        {
+                            text: '<i class="fa-solid fa-filter"></i> Buscar',
+                            className: 'btn-sm btn-primary border-0',
+                            action: function (e, dt, node, config) {
+                                Buscar();
+                            }
+                        },
+                        {
+                            extend: 'excel',
+                            text: '<i class="fa-solid fa-file-excel"></i> Exportar',
+                            className: 'btn-sm btn-success border-0',
+                            filename: 'Citas @(DateTime.Now.ToString("dd-MM-yyyy HH.mm"))'
+                        },
+
+                    ]
+                }
+            }
+        };
+
+        ARCHIVOS_TABLE = $('#tblCita').DataTable(tableConfig);
+    });
+
+    function Buscar() {
+        $.post('@Url.Action("ListarCitas", "Home")')
+            .done(function (data, status, xhr) {
+                console.log("entro");
+                __onSuccess(data, status, xhr, '#tblCita', tableConfig)
+            })
+    }
+
+</script>

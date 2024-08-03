@@ -1,0 +1,25 @@
+﻿@model UTEC.Salud.Models.VistaCita
+<table id="tblCita" class="table table-striped w-100 table-bordered nowrap" data-page-length="12">
+    <thead class="bg-primary text-light">
+        <tr>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:30%">Ubigeo 2</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:30%">UnidadEjecutora</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:30%">Ambito</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:10%">Vraem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Lista != null)
+        {
+            foreach (var item in Model.Lista)
+            {
+                <tr>
+                    <td class="text-center px-1 fw-normal" scope="row">@item.Ubigeo</td>
+                    <td class="text-center px-1 fw-normal">@item.UnidadEjecutora</td>
+                    <td class="text-center px-1 fw-normal">@item.Ambito</td>
+                    <td class="text-center px-1 fw-normal">@item.Vraem</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

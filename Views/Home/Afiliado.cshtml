@@ -43,7 +43,6 @@
     function Buscar() {
         $.post('@Url.Action("ListarAfiliados", "Home")')
             .done(function (data, status, xhr) {
-                console.log(xhr);
                 __onSuccess(data, status, xhr, '#tblAfiliado', tableConfig)
             })
     }
