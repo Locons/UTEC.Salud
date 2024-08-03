@@ -7,15 +7,14 @@
 
     public class Afiliado
     {
-        public int Ubigeo { get; set; }
-        public string UnidadEjecutora { get; set; }
-        public string Ambito { get; set; }
-        public string Vraem { get; set; }
-        public int Edad { get; set; }
-        public string Sexo { get; set; }
-        public string PlanSeguro { get; set; }
-        public string Departamento { get; set; }
-        public string Provincia { get; set; }
-        public string Distrito { get; set; }
+        public string unidadEjecutora { get; set; }
+        public string ambitoINEI { get; set; }
+        public string vraem { get; set; }
+        public string edad { get; set; }
+        public string sexo { get; set; }
+        public string planSeguro { get; set; }
+        public string departamento { get; set; }
+        public string provincia { get; set; }
+        public string distrito { get; set; }
     }
 }

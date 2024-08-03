@@ -1,11 +1,16 @@
 ﻿@model UTEC.Salud.Models.VistaAfiliado
-<table id="tblAfiliado" class="table table-striped w-100 table-bordered nowrap" data-page-length="12">
+<table id="tblAfiliado" class="table table-bordered" data-page-length="15">
     <thead class="bg-primary text-light">
         <tr>
-            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:30%">Ubigeo</th>
-            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:30%">UnidadEjecutora</th>
-            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:30%">Ambito</th>
-            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:10%">Vraem</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:35%">UnidadEjecutora</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:5%">Ambito</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:5%">Vraem</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:3%">Edad</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:5%">Sexo</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:10%">Plan</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:10%">Dpto.</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:12%">Provincia</th>
+            <th class="text-center px-1 fw-normal text-wrap" scope="col" style="width:15%">Distrito</th>
         </tr>
     </thead>
     <tbody>
@@ -14,10 +19,15 @@
             foreach (var item in Model.Lista)
             {
                 <tr>
-                    <td class="text-center px-1 fw-normal" scope="row">@item.Ubigeo</td>
-                    <td class="text-center px-1 fw-normal">@item.UnidadEjecutora</td>
-                    <td class="text-center px-1 fw-normal">@item.Ambito</td>
-                    <td class="text-center px-1 fw-normal">@item.Vraem</td>
+                    <td class="text-left px-1 fw-normal" scope="row">@item.unidadEjecutora</td>
+                    <td class="text-center px-1 fw-normal">@item.ambitoINEI</td>
+                    <td class="text-center px-1 fw-normal">@item.vraem</td>
+                    <td class="text-center px-1 fw-normal">@item.edad</td>
+                    <td class="text-center px-1 fw-normal">@item.sexo</td>
+                    <td class="text-center px-1 fw-normal">@item.planSeguro</td>
+                    <td class="text-center px-1 fw-normal">@item.departamento</td>
+                    <td class="text-center px-1 fw-normal">@item.provincia</td>
+                    <td class="text-center px-1 fw-normal">@item.distrito</td>
                 </tr>
             }
         }
